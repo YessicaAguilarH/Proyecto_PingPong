@@ -285,7 +285,6 @@ void startGame(void) {
 			paddile_velocity += speed_increment;
 	}
 		
-		
 		// ball hits the right paddle
 		if (ball_pos_x + ball_radius + 5 > paddle_x && ball_pos_x + ball_radius < paddle_x)
 			if (ball_pos_y < player2_paddile_y + paddle_height && ball_pos_y > player2_paddile_y - paddle_height)
@@ -313,6 +312,7 @@ void startGame(void) {
 		
 		glutPostRedisplay();
 }
+
 // reshape the display
 void reshape(int w, int h) {
 	glViewport (0, 0, (GLsizei) w, (GLsizei) h);
@@ -349,7 +349,6 @@ void mouse(int button, int state, int x, int y) {
 		break;
 	}
 }
-
 
 void keyboard (unsigned char key, int x, int y) {
 	switch (key) {
