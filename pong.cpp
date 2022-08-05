@@ -305,8 +305,8 @@ void startGame(void) {
 		}
 		
 		
-		if (player2_score > 20 || player1_score > 20) {
-			printf("Perdiste pe chamo");
+		if (player2_score > 10 || player1_score > 10) {
+			printf("PERDISTE");
 			glutDestroyWindow(1);
 		}
 		
