@@ -312,7 +312,78 @@ void startGame(void) {
 		
 		glutPostRedisplay();
 }
+// reshape the display
+void reshape(int w, int h) {
+	glViewport (0, 0, (GLsizei) w, (GLsizei) h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(-orthoSizeX, orthoSizeX, -orthoSizeY, orthoSizeY, -100, 100);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
 
+// on mouse button click
+void mouse(int button, int state, int x, int y) {
+	switch (button) {
+		// left button - initialize random velocity between (ran(5) - rand(3))
+	case GLUT_LEFT_BUTTON:
+		if (state == GLUT_DOWN)
+			ball_velocity_x = (rand() % 5) -  (rand() % 3);
+		ball_velocity_y = (rand() % 5) -  (rand() % 3);
+		
+		// keep on calling the callback to move the ball and check boundary conditions
+		glutIdleFunc(startGame);
+		break;
+		// middle button to reset the ball, paddle and score
+	case GLUT_MIDDLE_BUTTON:
+		// reset ball, paddle and player scores
+		ball_pos_x = ball_pos_y = 0;
+		player1_paddile_y = player2_paddile_y = 0;
+		player1_score = player2_score = 0;
+		if (state == GLUT_DOWN)
+			// remove the call back so that game stops
+			glutIdleFunc(NULL);
+		break;
+	default:
+		break;
+	}
+}
+
+
+void keyboard (unsigned char key, int x, int y) {
+	switch (key) {
+		// move player 1 paddile up
+	case 'q':
+		if (player1_paddile_y < paddle_boundary)
+			player1_paddile_y += paddile_velocity;
+		glutPostRedisplay();
+		break;
+		// move player 1 paddile down
+	case 'a':
+		if (player1_paddile_y > -paddle_boundary)
+			player1_paddile_y -= paddile_velocity;
+		glutPostRedisplay();
+		break;
+		// move player 2 paddile up
+	case 'o':
+		if (player2_paddile_y < paddle_boundary)
+			player2_paddile_y += paddile_velocity;
+		glutPostRedisplay();
+		break;
+		// move player 2 paddile down
+	case 'l':
+		if (player2_paddile_y > -paddle_boundary)
+			player2_paddile_y -= paddile_velocity;
+		glutPostRedisplay();
+		break;
+		// exit on esc
+	case 27:
+		exit(0);
+		break;
+	default:
+		break;
+	}
+}
 
 /*
 * Request double buffer display mode.
