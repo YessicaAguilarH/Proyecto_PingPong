@@ -1,10 +1,9 @@
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
-#include <stdlib.h>
-#include <time.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <GL/gl.h> //Fichero de cabezera librería OpenGL32.
+#include <GL/glu.h> //Fichero de cabecera librería GLu32.
+#include <GL/glut.h> //La librería GLUT nos permite crear una interfície de ventanas tipo X-Windows.
+#include <stdlib.h> //Contiene los prototipos de funciones de C para gestión de memoria dinámica, control de procesos y otro.
+#include <time.h> //Contiene funciones para manipular y formatear la fecha y hora del sistema.
+#include <stdio.h> //Funciones de manipulación de ficheros y funciones de manipulación de entradas y salidas.
 // global variables
 static GLint windowSizeX = 800, windowSizeY = 1200;
 static GLint orthoSizeX = 600, orthoSizeY = 400;
