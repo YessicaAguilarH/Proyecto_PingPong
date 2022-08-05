@@ -4,6 +4,8 @@
 #include <stdlib.h> //Contiene los prototipos de funciones de C para gestión de memoria dinámica, control de procesos y otro.
 #include <time.h> //Contiene funciones para manipular y formatear la fecha y hora del sistema.
 #include <stdio.h> //Funciones de manipulación de ficheros y funciones de manipulación de entradas y salidas.
+
+
 // global variables
 static GLint windowSizeX = 800, windowSizeY = 1200;
 static GLint orthoSizeX = 600, orthoSizeY = 400;
